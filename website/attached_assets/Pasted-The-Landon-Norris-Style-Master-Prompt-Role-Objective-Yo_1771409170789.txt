@@ -1,0 +1,119 @@
+The "Landon Norris" Style Master Prompt
+Role & Objective:
+You are an expert Frontend Architect and UI/UX Designer. Your goal is to build a personal portfolio website for Jeeth Bhavesh Kataria inspired by the "Bento Grid" aesthetic of landonorris.com. The site must be responsive, highly performant, and use a dark, high-contrast engineering theme.
+
+Design System (The "Landon" Vibe):
+
+Layout: A "Bento Box" Grid System. Everything (About, Projects, Socials, Stats) lives inside modular, rounded-square cards.
+
+Theme: Deep Black (#050505) background. Cards are slightly lighter (#101010) with subtle borders (#1f1f1f).
+
+Typography: Large, bold Sans-Serif headings (Inter or Geist Sans) mixed with Monospace tags (JetBrains Mono) for technical details.
+
+Interactions: Hover effects are key. Cards should slightly scale up or glow on hover. Images inside cards should have a subtle zoom effect.
+
+Navigation: Floating dock or simple top-right links.
+
+Tech Stack:
+
+Framework: Next.js 14 (App Router).
+
+Styling: Tailwind CSS + Framer Motion (for the layout transitions).
+
+Icons: Lucide React.
+
+Font: Inter & JetBrains Mono (via next/font).
+
+Content & Grid Architecture (The Bento Layout):
+
+Row 1 (The Hook):
+
+Card A (Large - 2x2): Hero Card.
+
+Text: "I build high-performance AI systems."
+
+Subtext: "Jeeth Bhavesh Kataria. Researcher & Systems Engineer."
+
+Visual: A subtle, animated mesh gradient or 3D abstract shape (using Three.js or simple CSS gradient animation).
+
+Card B (Tall - 1x2): The "Visual Resume" (Trajectory Graph).
+
+Content: Display the Jeeth_Kataria_Academic_Trajectory.png image here.
+
+Overlay/Caption: "Academic & Research Trajectory."
+
+Action: Click to expand/view full size.
+
+Card C (Small - 1x1): Location.
+
+Icon: Map Pin.
+
+Text: "Bengaluru, India."
+
+Visual: A mini interactive Mapbox or just a stylized static map image.
+
+Row 2 (The Proof):
+
+Card D (Wide - 2x1): Featured Project: torch-kitsune.
+
+Badge: v0.3.0 PyPI CUDA
+
+Headline: "Accelerating PyTorch."
+
+Desc: "CUDA-accelerated dataflow scheduler. Optimizes memory & reduces overhead."
+
+Link: External arrow to PyPI.
+
+Card E (Small - 1x1): Competitive Stats (The "Brain" Card).
+
+Headline: "Top 1% Engineering."
+
+Stat 1: "JEE Mains 2023: 97.98%le (AIR 23k)."
+
+Stat 2: "NEET 2023: AIR 32k."
+
+Style: Bold numbers, very clean typography.
+
+Card F (Small - 1x1): Stack.
+
+Icons only: Python, C++, PyTorch, CUDA, Next.js, Docker. (Marquee animation if possible).
+
+Row 3 (Experience & Research):
+
+Card G (Wide - 2x1): Research Timeline.
+
+List Layout (Minimal):
+
+"DRDO (Defense R&D) – Research Intern" (Right arrow)
+
+"Samsung Vision – PRISM Researcher" (Right arrow)
+
+"CMTI (Govt) – ML Intern" (Right arrow)
+
+Card H (Wide - 2x1): System Architecture (SIH).
+
+Headline: "Marine Intelligence."
+
+Desc: "Multi-Agent RL System for Ocean Anomaly Detection."
+
+Visual: A small diagram or abstract wave animation.
+
+Footer / Social Row:
+
+Card I (Small): GitHub (Large Icon).
+
+Card J (Small): LinkedIn (Large Icon).
+
+Card K (Medium): "Email Me" (Button style card).
+
+Implementation Instructions:
+
+Set up a BentoGrid component using CSS Grid.
+
+Use framer-motion for layoutId animations (so cards feel fluid).
+
+Ensure the "Trajectory Graph" card (Card B) handles the image aspect ratio gracefully (object-cover).
+
+The "Competitive Stats" card should use a monospace font for the numbers to emphasize precision.
+
+Make it fully responsive: On mobile, the grid collapses to a single column stack.
