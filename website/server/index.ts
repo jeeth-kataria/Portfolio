@@ -2,9 +2,32 @@ import express, { type Request, Response, NextFunction } from "express";
 import { registerRoutes } from "./routes";
 import { serveStatic } from "./static";
 import { createServer } from "http";
+import helmet from "helmet";
+import { rateLimit } from "express-rate-limit";
 
 const app = express();
 const httpServer = createServer(app);
+
+// Security Middleware
+app.use(helmet({
+  contentSecurityPolicy: {
+    directives: {
+      ...helmet.contentSecurityPolicy.getDefaultDirectives(),
+      "script-src": ["'self'", "'unsafe-inline'", "'unsafe-eval'"], // Needed for Vite/HMR
+      "img-src": ["'self'", "data:", "https://*"],
+      "connect-src": ["'self'", "ws:", "wss:", "https://*"],
+    },
+  },
+}));
+
+const limiter = rateLimit({
+  windowMs: 15 * 60 * 1000, // 15 minutes
+  limit: 100, // Limit each IP to 100 requests per `window` (here, per 15 minutes).
+  standardHeaders: 'draft-7',
+  legacyHeaders: false,
+});
+
+app.use("/api", limiter);
 
 declare module "http" {
   interface IncomingMessage {
